@@ -1,0 +1,18 @@
+import { Route, Routes } from "react-router";
+import Home from "../pages/Home";
+import Products from "../pages/Products";
+import Cart from "../pages/Cart";
+
+const AppRouter = () => {
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </div>
+  );
+};
+
+export default AppRouter;
