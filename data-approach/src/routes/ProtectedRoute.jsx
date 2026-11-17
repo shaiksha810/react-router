@@ -7,7 +7,7 @@ const ProtectedRoute = () => {
    const {logInUsers} = useContext(AuthStore)
    
    if(!logInUsers){
-    return <Navigate to={"/login"}/>
+    return <Navigate to="/" replace/>
    }
    
   return <Outlet />

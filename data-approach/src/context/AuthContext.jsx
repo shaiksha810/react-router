@@ -6,8 +6,8 @@ export const AuthStore = createContext()
 
 export const AuthContext = ({ children }) => {
 
-    const [registerUsers, setRegisterUsers] = useState(JSON.parse(localStorage.getItem("registerUsers")))
-    const [logInUsers, setLogInUsers] = useState(JSON.parse(localStorage.getItem("loggedInUser")))
+    const [registerUsers, setRegisterUsers] = useState(JSON.parse(localStorage.getItem("registerUsers")) || [])
+    const [logInUsers, setLogInUsers] = useState(null)
 
     return <AuthStore.Provider value={{ registerUsers, setRegisterUsers, logInUsers, setLogInUsers}}>
       {children}

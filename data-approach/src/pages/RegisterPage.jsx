@@ -7,17 +7,15 @@ import { AuthStore } from "../context/AuthContext";
 const RegisterPage = () => {
 
     const {registerUsers, setRegisterUsers} = useContext(AuthStore)
-    // console.log(registerUsers)
 
     const {register, handleSubmit, reset, formState:{errors}} = useForm()
     const navigate = useNavigate()
 
     const registerData = (data) => {
-       
+
         setRegisterUsers([...registerUsers, data])
         localStorage.setItem("registerUsers", [JSON.stringify([...registerUsers, data])])
         reset()
-    
         navigate("/main")
 
     }

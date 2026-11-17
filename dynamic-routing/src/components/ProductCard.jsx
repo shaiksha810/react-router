@@ -8,10 +8,21 @@ const ProductCard = ({ product }) => {
     const {cartData, setCartData} = useContext(AppStore)
     const {productsData} = useContext(AppStore)
 
+    
     const handleCart = (id) => {
-      const cartItem = productsData.find(p => p.id === id)
+
+    const item = cartData.find(p => p.id === id)
+
+
+    
+    if(!item) {
+
+      const item = productsData.find(elem => elem.id === id)
+      setCartData((prev) => [...prev, {quantity:1, ...item}])
       
-      setCartData([...cartData, cartItem])  
+    }else{
+      setCartData((prev) => prev.map((elem) => elem.id === id ? {...elem, quantity:elem.quantity+1} : elem))
+    }
     }
 
 

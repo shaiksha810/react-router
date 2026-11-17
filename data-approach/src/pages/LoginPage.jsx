@@ -9,18 +9,20 @@ const LoginPage = () => {
     const {register, reset, handleSubmit, formState:{errors} } = useForm()
     const navigate = useNavigate()
 
-    const {setLogInUsers} = useContext(AuthStore)
-    // console.log(logInUsers);
-    
+    const {registerUsers, setLogInUsers} = useContext(AuthStore)
 
     const handleLogin = (data) => {
-
-        localStorage.setItem("loggedInUser", JSON.stringify(data))
-        setLogInUsers(data)
-        navigate("/main")
-        
-        reset()
-              
+     const userr =  registerUsers.find((user) => user.email === data.email && user.password === data.password)     
+    
+    if(userr) {
+      setLogInUsers(data)
+      localStorage.setItem("loggedInUser", JSON.stringify(data))
+      navigate("/main") 
+    }else{
+      alert("User not found or Invalid credentials")
+      reset()
+     }
+      
     }
 
 

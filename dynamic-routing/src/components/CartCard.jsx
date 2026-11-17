@@ -55,7 +55,7 @@ const CartCard = ({ product }) => {
         </p>
 
         <p className="text-xl font-bold text-green-700">
-          ${product.price.toFixed(2)}
+          {/* ${product.price.toFixed(2)} */}
         </p>
 
       </div>
